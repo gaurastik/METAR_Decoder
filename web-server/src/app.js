@@ -3,6 +3,9 @@ const path = require('path')
 const app = express()
 const request = require('request')
 const weather_API = require('../utils/weather_api')
+const geojson_file = require('../utils/json_to_geojson')
+//test
+const fs = require('fs')
 
 const airport_query = [
     'VOMM,VOCB,VOMD,VOPC,VOSM,VOTR,VOTK,VOBL,VOBG,VOML,VOMY,VOGB,VOJV,VOHS,VOCP,VOHY,VORY,VOTP,VOBZ,VOTV',
@@ -15,31 +18,23 @@ const frontend_dir_path = path.join(__dirname, '../public')
 app.use(express.static(frontend_dir_path))
 
 app.get('/:variableRootURL/:variableRootURL/:variableRootURL', (req, res) => {
-    let final_data = []
+
+    let weather_data_json = []
     for (let i = 0; i < 4; i++) {
         weather_API.Weather_data(airport_query[i], (error, data) => {
             if (error) {
-
-                final_data.push(error)
-
-
+                res.send(error)
             } else {
-
-                final_data.push(data)
-
-
+                data.data.forEach(station => {
+                    weather_data_json.push(station)
+                })
             }
-
-
-            if (final_data.length == 4) {
-                res.send(final_data)
-
+            if (weather_data_json.length == 73) {
+                const final = geojson_file.conversion(weather_data_json)
+                res.send(final)
             }
         })
-
     }
-
-
 })
 
 
