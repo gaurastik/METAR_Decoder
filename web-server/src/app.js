@@ -17,7 +17,7 @@ const frontend_dir_path = path.join(__dirname, '../public')
 
 app.use(express.static(frontend_dir_path))
 //http://localhost:3000/#5/22.958/78.112
-app.get('', (req, res) => {
+app.get('/weather', (req, res) => {
     console.log("I'm here!")
     let weather_data_json = []
     let pass = 0

@@ -252,71 +252,71 @@
           });
           var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">ICAO code</th>\
-                        <td>' + (feature.properties['ICAO code'] !== null ? autolinker.link(feature.properties['ICAO code'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">ICAO code&emsp;</th>\
+                        <td>' + (feature.properties['ICAO code'] !== null ? autolinker.link(feature.properties['ICAO code'].toLocaleString()) : 'NA') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Name of airport</th>\
-                        <td>' + (feature.properties['Name of airport'] !== null ? autolinker.link(feature.properties['Name of airport'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name of airport&emsp;</th>\
+                        <td>' + (feature.properties['Name of airport'] !== null ? autolinker.link(feature.properties['Name of airport'].toLocaleString()) : 'NA') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Observed D/T</th>\
-                        <td>' + (feature.properties['Observed D/T'] !== null ? autolinker.link(feature.properties['Observed D/T'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Observed (D/T)&emsp;</th>\
+                        <td>' + (feature.properties['Observed D/T'] !== null ? autolinker.link(feature.properties['Observed D/T'].toLocaleString()) : 'NA') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Location</th>\
-                        <td>' + (feature.properties['Location'] !== null ? autolinker.link(feature.properties['Location'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Location&emsp;</th>\
+                        <td>' + (feature.properties['Location'] !== null ? autolinker.link(feature.properties['Location'].toLocaleString()) : 'NA') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Pressure</th>\
-                        <td>' + (feature.properties['Pressure'] !== null ? autolinker.link(feature.properties['Pressure'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Pressure (hPa)&emsp;</th>\
+                        <td>' + (feature.properties['Pressure'] !== null ? autolinker.link(feature.properties['Pressure'].toLocaleString()) : 'NA') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Temperature</th>\
-                        <td>' + (feature.properties['Temperature'] !== null ? autolinker.link(feature.properties['Temperature'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Temperature (°C)&emsp;</th>\
+                        <td>' + (feature.properties['Temperature'] !== null ? autolinker.link(feature.properties['Temperature'].toLocaleString()) : 'NA') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Humidity</th>\
-                        <td>' + (feature.properties['Humidity'] !== null ? autolinker.link(feature.properties['Humidity'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Humidity (%)&emsp;</th>\
+                        <td>' + (feature.properties['Humidity'] !== null ? autolinker.link(feature.properties['Humidity'].toLocaleString()) : 'NA') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Dewpoint</th>\
-                        <td>' + (feature.properties['Dewpoint'] !== null ? autolinker.link(feature.properties['Dewpoint'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Dewpoint (°C)&emsp;</th>\
+                        <td>' + (feature.properties['Dewpoint'] !== null ? autolinker.link(feature.properties['Dewpoint'].toLocaleString()) : 'NA') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Visibility</th>\
-                        <td>' + (feature.properties['Visibility'] !== null ? autolinker.link(feature.properties['Visibility'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Visibility (m)&emsp;</th>\
+                        <td>' + (feature.properties['Visibility'] !== null ? autolinker.link(feature.properties['Visibility'].toLocaleString()) : 'NA') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Cloud 1st Layer</th>\
-                        <td>' + (feature.properties["Cloud 1st Layer"] !== null ? autolinker.link(feature.properties["Cloud 1st Layer"].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Cloud 1st Layer&emsp;</th>\
+                        <td>' + (feature.properties["Cloud 1st Layer"] !== null ? autolinker.link(feature.properties["Cloud 1st Layer"].toLocaleString()) : 'NA') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Cloud 2nd Layer</th>\
-                        <td>' + (feature.properties["Cloud 2nd Layer"] !== null ? autolinker.link(feature.properties["Cloud 2nd Layer"].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Cloud 2nd Layer&emsp;</th>\
+                        <td>' + (feature.properties["Cloud 2nd Layer"] !== null ? autolinker.link(feature.properties["Cloud 2nd Layer"].toLocaleString()) : 'NA') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Cloud 3rd Layer</th>\
-                        <td>' + (feature.properties["Cloud 3rd Layer"] !== null ? autolinker.link(feature.properties["Cloud 3rd Layer"].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Cloud 3rd Layer&emsp;</th>\
+                        <td>' + (feature.properties["Cloud 3rd Layer"] !== null ? autolinker.link(feature.properties["Cloud 3rd Layer"].toLocaleString()) : 'NA') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Wind Direction</th>\
-                        <td>' + (feature.properties["Wind Direction"] !== null ? autolinker.link(feature.properties["Wind Direction"].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Wind Direction (°)&emsp;</th>\
+                        <td>' + (feature.properties["Wind Direction"] !== null ? autolinker.link(feature.properties["Wind Direction"].toLocaleString()) : 'NA') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Wind Speed</th>\
-                        <td>' + (feature.properties["Wind Speed"] !== null ? autolinker.link(feature.properties["Wind Speed"].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Wind Speed (kts)&emsp;</th>\
+                        <td>' + (feature.properties["Wind Speed"] !== null ? autolinker.link(feature.properties["Wind Speed"].toLocaleString()) : 'NA') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Conditions</th>\
-                        <td>' + (feature.properties['Conditions'] !== null ? autolinker.link(feature.properties['Conditions'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Conditions&emsp;</th>\
+                        <td>' + (feature.properties['Conditions'] !== null ? autolinker.link(feature.properties['Conditions'].toLocaleString()) : 'NA') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Flight Category</th>\
-                        <td>' + (feature.properties['Flight Category'] !== null ? autolinker.link(feature.properties['Flight Category'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Flight Category&emsp;</th>\
+                        <td>' + (feature.properties['Flight Category'] !== null ? autolinker.link(feature.properties['Flight Category'].toLocaleString()) : 'NA') + '</td>\
                     </tr>\
                 </table>';
-          layer.bindPopup(popupContent, { maxHeight: 400 });
+          layer.bindPopup(popupContent, { maxHeight: 500, maxWidth: 500 });
         }
 
         function style_airport_1_0() {

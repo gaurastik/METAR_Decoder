@@ -41,11 +41,11 @@ const conversion = (weather_data) => {
         if (airport.observed !== undefined) {
             airport_geojson.properties["Observed D/T"] = airport.observed
         } else { airport_geojson.properties["Observed D/T"] = null }
-        if (airport.location !== undefined) {
-            airport_geojson.properties.Location = airport.location
+        if (airport.station.location !== undefined) {
+            airport_geojson.properties.Location = airport.station.location
         } else { airport_geojson.properties.Location = null }
-        if (airport.name !== undefined) {
-            airport_geojson.properties["Name of airport"] = airport.name
+        if (airport.station.name !== undefined) {
+            airport_geojson.properties["Name of airport"] = airport.station.name
         } else { airport_geojson.properties["Name of airport"] = null }
         if (airport.temperature.celsius !== undefined) {
             airport_geojson.properties.Temperature = airport.temperature.celsius
