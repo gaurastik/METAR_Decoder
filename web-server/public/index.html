@@ -252,20 +252,68 @@
           });
           var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">name</th>\
-                        <td>' + (feature.properties['icao'] !== null ? autolinker.link(feature.properties['icao'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">ICAO code</th>\
+                        <td>' + (feature.properties['ICAO code'] !== null ? autolinker.link(feature.properties['ICAO code'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">iata_code</th>\
-                        <td>' + (feature.properties['observed '] !== null ? autolinker.link(feature.properties['observed '].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name of airport</th>\
+                        <td>' + (feature.properties['Name of airport'] !== null ? autolinker.link(feature.properties['Name of airport'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">wikipedia</th>\
-                        <td>' + (feature.properties['visibility'] !== null ? autolinker.link(feature.properties['visibility'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Observed D/T</th>\
+                        <td>' + (feature.properties['Observed D/T'] !== null ? autolinker.link(feature.properties['Observed D/T'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">class</th>\
-                        <td>' + (feature.properties['flight category'] !== null ? autolinker.link(feature.properties['flight category'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Location</th>\
+                        <td>' + (feature.properties['Location'] !== null ? autolinker.link(feature.properties['Location'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Pressure</th>\
+                        <td>' + (feature.properties['Pressure'] !== null ? autolinker.link(feature.properties['Pressure'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Temperature</th>\
+                        <td>' + (feature.properties['Temperature'] !== null ? autolinker.link(feature.properties['Temperature'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Humidity</th>\
+                        <td>' + (feature.properties['Humidity'] !== null ? autolinker.link(feature.properties['Humidity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Dewpoint</th>\
+                        <td>' + (feature.properties['Dewpoint'] !== null ? autolinker.link(feature.properties['Dewpoint'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Visibility</th>\
+                        <td>' + (feature.properties['Visibility'] !== null ? autolinker.link(feature.properties['Visibility'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Cloud 1st Layer</th>\
+                        <td>' + (feature.properties["Cloud 1st Layer"] !== null ? autolinker.link(feature.properties["Cloud 1st Layer"].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Cloud 2nd Layer</th>\
+                        <td>' + (feature.properties["Cloud 2nd Layer"] !== null ? autolinker.link(feature.properties["Cloud 2nd Layer"].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Cloud 3rd Layer</th>\
+                        <td>' + (feature.properties["Cloud 3rd Layer"] !== null ? autolinker.link(feature.properties["Cloud 3rd Layer"].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Wind Direction</th>\
+                        <td>' + (feature.properties["Wind Direction"] !== null ? autolinker.link(feature.properties["Wind Direction"].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Wind Speed</th>\
+                        <td>' + (feature.properties["Wind Speed"] !== null ? autolinker.link(feature.properties["Wind Speed"].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Conditions</th>\
+                        <td>' + (feature.properties['Conditions'] !== null ? autolinker.link(feature.properties['Conditions'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Flight Category</th>\
+                        <td>' + (feature.properties['Flight Category'] !== null ? autolinker.link(feature.properties['Flight Category'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
           layer.bindPopup(popupContent, { maxHeight: 400 });
