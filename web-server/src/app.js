@@ -15,9 +15,7 @@ const airport_query = [
 
 const frontend_dir_path = path.join(__dirname, '../public')
 
-app.use(express.static(frontend_dir_path))
-//http://localhost:3000/#5/22.958/78.112
-app.get('/weather', (req, res) => {
+app.get('/', (req, res, next) => {
     console.log("I'm here!")
     let weather_data_json = []
     let pass = 0
@@ -38,8 +36,10 @@ app.get('/weather', (req, res) => {
             }
         })
     }
+    next()
 })
 
+app.use(express.static(frontend_dir_path))
 
 app.listen(3000, () => {
     console.log("Server is up and running!")
