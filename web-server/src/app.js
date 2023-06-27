@@ -18,8 +18,9 @@ const frontend_dir_path = path.join(__dirname, '../public')
 app.use(express.static(frontend_dir_path))
 
 app.get('/:variableRootURL/:variableRootURL/:variableRootURL', (req, res) => {
-
+    console.log("I'm here!")
     let weather_data_json = []
+    let pass = 0
     for (let i = 0; i < 4; i++) {
         weather_API.Weather_data(airport_query[i], (error, data) => {
             if (error) {
@@ -29,9 +30,11 @@ app.get('/:variableRootURL/:variableRootURL/:variableRootURL', (req, res) => {
                     weather_data_json.push(station)
                 })
             }
-            if (weather_data_json.length == 73) {
-                const final = geojson_file.conversion(weather_data_json)
-                res.send(final)
+            pass += 1
+            if (pass == 4) {
+                const final = `var json_airport_1 = ${conversion.conversion(weather_data_json)}`
+                fs.writeFileSync(`${frontend_dir_path}/data/airport_1.js`, final)
+
             }
         })
     }

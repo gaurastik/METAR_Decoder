@@ -8,7 +8,7 @@ const airport_query = [
     'VEMR,VEMN,VASU,VAAH,VABO,VABV,VAKE,VAPR,VARK,VADU,VASD,VABB,VAAU,VAJL,VAJJ,VERP,VABP,VAID,VAJB,VIJR',
     'VANP,VEBN,VIBR,VIGG,VISM,VIJU,VISR,VAUD,VILK,VIJP,VIDN,VIAR,VIDP']
 let weather_data_json = []
-
+let pass = 0
 for (let i = 0; i < 4; i++) {
     weather_API.Weather_data(airport_query[i], (error, data) => {
         if (error) {
@@ -18,10 +18,12 @@ for (let i = 0; i < 4; i++) {
             data.data.forEach(station => {
                 weather_data_json.push(station)
             });
-            if (weather_data_json.length == 73) {
+            pass += 1
+            if (pass == 4) {
                 const raw_data = JSON.stringify(weather_data_json)
                 fs.writeFileSync('weather_data_raw.json', raw_data)
-                fs.writeFileSync('weather_data.json', conversion.conversion(weather_data_json))
+                const weather_data_final = `var json_airport_1 = ${conversion.conversion(weather_data_json)}`
+                fs.writeFileSync('weather_data.js', weather_data_final)
             }
 
 
