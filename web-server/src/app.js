@@ -11,12 +11,12 @@ const airport_query = [
     'VOMM,VOCB,VOMD,VOPC,VOSM,VOTR,VOTK,VOBL,VOBG,VOML,VOMY,VOGB,VOJV,VOHS,VOCP,VOHY,VORY,VOTP,VOBZ,VOTV',
     'VECC,VECO,VEDG,VEBD,VEBS,VEJH,VEPY,VEPT,VEGY,VEJS,VERC,VOKN,VOCL,VOCI,VETZ,VEAT,VELP,VEBI,VEIM,VELR',
     'VEMR,VEMN,VASU,VAAH,VABO,VABV,VAKE,VAPR,VARK,VADU,VASD,VABB,VAAU,VAJL,VAJJ,VERP,VABP,VAID,VAJB,VIJR',
-    'VANP,VEBN,VIBR,VIGG,VISM,VIJU,VISR,VAUD,VILK,VIJP,VIDN,VIAR,VIDP']
+    'VANP,VEBN,VIBR,VIGG,VISM,VIJU,VISR,VAUD,VILK,VIJP,VIDN,VIAR,VIDP,VAPO']
 
 const frontend_dir_path = path.join(__dirname, '../public')
 
 app.get('/', (req, res, next) => {
-    console.log("I'm here!")
+
     let weather_data_json = []
     let pass = 0
     for (let i = 0; i < 4; i++) {
@@ -30,6 +30,7 @@ app.get('/', (req, res, next) => {
             }
             pass += 1
             if (pass == 4) {
+
                 const final = `var json_airport_1 = ${geojson_file.conversion(weather_data_json)}`
                 fs.writeFileSync(`${frontend_dir_path}/data/airport_1.js`, final)
 

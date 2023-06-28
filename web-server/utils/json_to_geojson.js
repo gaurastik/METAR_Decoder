@@ -1,9 +1,11 @@
 
-let weather_data_geojson = {
-    "type": "FeatureCollection",
-    "features": []
-}
 const conversion = (weather_data) => {
+
+    let weather_data_geojson = {
+        "type": "FeatureCollection",
+        "features": []
+    }
+
     weather_data.forEach((airport) => {
 
         let airport_geojson = {
@@ -70,6 +72,7 @@ const conversion = (weather_data) => {
 
 
     })
+
     return JSON.stringify(weather_data_geojson)
 
 }
