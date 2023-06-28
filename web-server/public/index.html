@@ -174,42 +174,42 @@
             },
             mouseover: highlightFeature,
           });
-          var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['STNAME'] !== null ? autolinker.link(feature.properties['STNAME'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['STCODE11'] !== null ? autolinker.link(feature.properties['STCODE11'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['STNAME_SH'] !== null ? autolinker.link(feature.properties['STNAME_SH'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Shape_Length'] !== null ? autolinker.link(feature.properties['Shape_Length'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(feature.properties['Shape_Area'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['OBJECTID_1'] !== null ? autolinker.link(feature.properties['OBJECTID_1'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['State_LGD'] !== null ? autolinker.link(feature.properties['State_LGD'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Shape_Leng'] !== null ? autolinker.link(feature.properties['Shape_Leng'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['MaxSimpTol'] !== null ? autolinker.link(feature.properties['MaxSimpTol'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['MinSimpTol'] !== null ? autolinker.link(feature.properties['MinSimpTol'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-          layer.bindPopup(popupContent, { maxHeight: 400 });
+          // var popupContent = '<table>\
+          //           <tr>\
+          //               <td colspan="2">' + (feature.properties['STNAME'] !== null ? autolinker.link(feature.properties['STNAME'].toLocaleString()) : '') + '</td>\
+          //           </tr>\
+          //           <tr>\
+          //               <td colspan="2">' + (feature.properties['STCODE11'] !== null ? autolinker.link(feature.properties['STCODE11'].toLocaleString()) : '') + '</td>\
+          //           </tr>\
+          //           <tr>\
+          //               <td colspan="2">' + (feature.properties['STNAME_SH'] !== null ? autolinker.link(feature.properties['STNAME_SH'].toLocaleString()) : '') + '</td>\
+          //           </tr>\
+          //           <tr>\
+          //               <td colspan="2">' + (feature.properties['Shape_Length'] !== null ? autolinker.link(feature.properties['Shape_Length'].toLocaleString()) : '') + '</td>\
+          //           </tr>\
+          //           <tr>\
+          //               <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(feature.properties['Shape_Area'].toLocaleString()) : '') + '</td>\
+          //           </tr>\
+          //           <tr>\
+          //               <td colspan="2">' + (feature.properties['OBJECTID_1'] !== null ? autolinker.link(feature.properties['OBJECTID_1'].toLocaleString()) : '') + '</td>\
+          //           </tr>\
+          //           <tr>\
+          //               <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
+          //           </tr>\
+          //           <tr>\
+          //               <td colspan="2">' + (feature.properties['State_LGD'] !== null ? autolinker.link(feature.properties['State_LGD'].toLocaleString()) : '') + '</td>\
+          //           </tr>\
+          //           <tr>\
+          //               <td colspan="2">' + (feature.properties['Shape_Leng'] !== null ? autolinker.link(feature.properties['Shape_Leng'].toLocaleString()) : '') + '</td>\
+          //           </tr>\
+          //           <tr>\
+          //               <td colspan="2">' + (feature.properties['MaxSimpTol'] !== null ? autolinker.link(feature.properties['MaxSimpTol'].toLocaleString()) : '') + '</td>\
+          //           </tr>\
+          //           <tr>\
+          //               <td colspan="2">' + (feature.properties['MinSimpTol'] !== null ? autolinker.link(feature.properties['MinSimpTol'].toLocaleString()) : '') + '</td>\
+          //           </tr>\
+          //       </table>';
+          // layer.bindPopup(popupContent, { maxHeight: 400 });
         }
 
         function style_INDIA_STATES_0_0() {
@@ -224,7 +224,7 @@
             fill: true,
             fillOpacity: 1,
             fillColor: 'rgba(166,206,227,1.0)',
-            interactive: true,
+            interactive: false,
           }
         }
         map.createPane('pane_INDIA_STATES_0');
