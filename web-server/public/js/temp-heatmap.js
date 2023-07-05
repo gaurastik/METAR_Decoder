@@ -5,6 +5,12 @@ var layer
 const startEvent = () => {
 
     if (!isActive) {
+
+        // $('#temperature').css('background-color', '#0dcaf0')
+        // $('#temperature').css('color', 'black')
+        myButton.classList.add('clicked')
+
+
         testData = {
             max: 50,
             data: []
@@ -46,7 +52,9 @@ const startEvent = () => {
 
 
     } else {
-
+        // $('#temperature').css('background-color', 'white')
+        // $('#temperature').css('color', '#0dcaf0')
+        myButton.classList.remove("clicked")
         isActive = false
         layer.onRemove(map)
         layer = null
