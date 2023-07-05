@@ -20,8 +20,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark"
-    style="background-color: #87ceeb; font-family: 'Oxygen', sans-serif;">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #87ceeb; font-family: 'Oxygen', sans-serif;">
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="images/logo.png" class="img-fluid" height="75px" width="45px" alt="" style="margin-right: 30px;">
@@ -42,19 +41,15 @@
               About Us
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item"
-                  href="https://mausam.imd.gov.in/imd_latest/contents/history.php#:~:text=A%20disastrous%20tropical%20cyclone%20struck,country%20under%20a%20central%20authority."
-                  style="font-size: 20px;" target="_blank">History</a></li>
+              <li><a class="dropdown-item" href="#" style="font-size: 20px;">History</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="https://www.imdpune.gov.in/" target="_blank" style=" font-size:
-                  20px;">Services</a></li>
+              <li><a class="dropdown-item" href="#" style="font-size: 20px;">Services</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://mausam.imd.gov.in/imd_latest/contents/queries2.php"
-              style="font-size: 20px; padding: 30px; " target="_blank">Contact</a>
+            <a class="nav-link" href="#" style="font-size: 20px; padding: 30px; ">Contact</a>
           </li>
         </ul>
       </div>
@@ -70,12 +65,19 @@
   <hr style="margin-top: 0;">
   <div class="container-fluid">
     <div class="btn-group btn-group-fill w-100" role="group" aria-label="Options">
-      <button type="button" class="btn btn-outline-info">Temperature</button>
-      <button type="button" class="btn btn-outline-info">Wind</button>
-      <button type="button" class="btn btn-outline-info">Visibility</button>
-      <button type="button" class="btn btn-outline-info">Humidity</button>
+      <input type="radio" id="temperature" name="options" class="btn-check">
+      <label class="btn btn-outline-info" for="temperature">Temperature</label>
+      
+      <input type="radio" id="wind" name="options" class="btn-check">
+      <label class="btn btn-outline-info" for="wind">Wind</label>
+      
+      <input type="radio" id="visibility" name="options" class="btn-check">
+      <label class="btn btn-outline-info" for="visibility">Visibility</label>
+      
+      <input type="radio" id="humidity" name="options" class="btn-check">
+      <label class="btn btn-outline-info" for="humidity">Humidity</label>
     </div>
-  </div>
+  </div>  
   <hr>
   <div class="container-fluid">
 
@@ -417,37 +419,29 @@
       <h5 class="pb-4" style="font-weight: bold;">Important Links</h5>
       <ul class="list-unstyled">
         <li><a href="#" class="link-light text-decoration-none pb-3">Home</a></li>
-        <li><a href="#bottom" class="link-light text-decoration-none pb-3">About Us</a>
+        <li><a href="#" class="link-light text-decoration-none pb-3">About Us</a>
           <ul>
-            <li><a
-                href="https://mausam.imd.gov.in/imd_latest/contents/history.php#:~:text=A%20disastrous%20tropical%20cyclone%20struck,country%20under%20a%20central%20authority."
-                class="link-light text-decoration-none pb-3" target="_blank">History</a></li>
-            <li><a href="https://www.imdpune.gov.in/" class="link-light text-decoration-none pb-3"
-                target="_blank">Services</a></li>
+            <li><a href="#" class="link-light text-decoration-none pb-3">History</a></li>
+            <li><a href="#" class="link-light text-decoration-none pb-3">Services</a></li>
           </ul>
         </li>
-        <li><a href="https://mausam.imd.gov.in/imd_latest/contents/queries2.php" class="link-light text-decoration-none"
-            target="_blank">Contact</a></li>
+        <li><a href="#" class="link-light text-decoration-none">Contact</a></li>
       </ul>
     </div>
     <div class="col-md-3 pt-4">
       <h5 class="pb-4" style="font-weight: bold;">Map</h5>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30262.782451850737!2d73.80518850016568!3d18.53577847920561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c0839c10afb9%3A0xb712f082ad5baf05!2sIndia%20Meteorological%20Department!5e0!3m2!1sen!2sin!4v1686317409215!5m2!1sen!2sin"
-        style="width: 100%; height: 200px; border: 0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30262.782451850737!2d73.80518850016568!3d18.53577847920561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c0839c10afb9%3A0xb712f082ad5baf05!2sIndia%20Meteorological%20Department!5e0!3m2!1sen!2sin!4v1686317409215!5m2!1sen!2sin" style="width: 100%; height: 200px; border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </div>
 <!--copyright-->
-<div class="container-fluid">
+<div class="container-fluid d-flex align-items-center justify-content-center" style="height: 100vh;">
   <div class="row">
-    <div class="col-12 bg-secondary text-white text-center p-2">
-      <p style="font-family: 'Oxygen', sans-serif;">Designed & Developed by Astik Gaur & Roshan Karanth</p>
+    <div class="col-12 bg-secondary text-white text-center p-1">
+      <p style="font-family: 'Oxygen', sans-serif; margin-top: 10px;">Designed & Developed by Astik Gaur & Roshan Karanth</p>
     </div>
   </div>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
