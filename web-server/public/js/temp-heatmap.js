@@ -1,10 +1,6 @@
-var myButton = document.getElementById('temp-button')
+var myButton = document.getElementById('temperature')
 var isActive = false
 var layer
-
-
-
-
 
 const startEvent = () => {
 
