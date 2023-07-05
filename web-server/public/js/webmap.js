@@ -170,7 +170,7 @@ function style_airport_1_0() {
     }
 }
 map.createPane('pane_airport_1');
-map.getPane('pane_airport_1').style.zIndex = 402;
+map.getPane('pane_airport_1').style.zIndex = 9999;
 map.getPane('pane_airport_1').style['mix-blend-mode'] = 'normal';
 var layer_airport_1 = new L.geoJson(json_airport_1, {
     attribution: '',

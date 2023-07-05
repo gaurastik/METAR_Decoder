@@ -1,14 +1,12 @@
-var myButton = document.getElementById('temperature')
-var isActive = false
-var layer
+var temp_myButton = document.getElementById('temperature')
+var temp_isActive = false
+var temp_layer0 = null
 
-const startEvent = () => {
+const temp_startEvent = () => {
 
-    if (!isActive) {
+    if (!temp_isActive) {
 
-        // $('#temperature').css('background-color', '#0dcaf0')
-        // $('#temperature').css('color', 'black')
-        myButton.classList.add('clicked')
+        temp_myButton.classList.add('clicked')
 
 
         testData = {
@@ -47,20 +45,19 @@ const startEvent = () => {
         map.addLayer(heatmapLayer)
         heatmapLayer.setData(testData)
         map.getPanes().overlayPane.style.zIndex = 401
-        isActive = true
-        layer = heatmapLayer
+        temp_isActive = true
+        temp_layer0 = heatmapLayer
 
 
     } else {
-        // $('#temperature').css('background-color', 'white')
-        // $('#temperature').css('color', '#0dcaf0')
-        myButton.classList.remove("clicked")
-        isActive = false
-        layer.onRemove(map)
-        layer = null
+
+        temp_myButton.classList.remove("clicked")
+        temp_isActive = false
+        temp_layer0.onRemove(map)
+        temp_layer0 = null
     }
 
 }
 
-myButton.addEventListener('click', startEvent)
+temp_myButton.addEventListener('click', temp_startEvent)
 
