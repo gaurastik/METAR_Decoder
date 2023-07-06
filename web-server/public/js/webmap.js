@@ -172,6 +172,7 @@ function style_airport_1_0() {
 map.createPane('pane_airport_1');
 map.getPane('pane_airport_1').style.zIndex = 600;
 map.getPane('pane_airport_1').style['mix-blend-mode'] = 'normal';
+var airport_points = []
 var layer_airport_1 = new L.geoJson(json_airport_1, {
     attribution: '',
     interactive: true,
@@ -184,11 +185,14 @@ var layer_airport_1 = new L.geoJson(json_airport_1, {
             feature: feature,
             variables: {}
         };
-        return L.circleMarker(latlng, style_airport_1_0(feature));
+        var point = L.circleMarker(latlng, style_airport_1_0(feature));
+        airport_points.push(point)
+        return point;
     },
 });
 bounds_group.addLayer(layer_airport_1);
 map.addLayer(layer_airport_1);
+
 //Web-map tools
 var osmGeocoder = new L.Control.Geocoder({
     collapsed: true,
