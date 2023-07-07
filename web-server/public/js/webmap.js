@@ -1,11 +1,13 @@
 var visi_isActive = false
+var temp_isActive = false
 
 //Highlight Layer
 var highlightLayer;
 function highlightFeature(e) {
     highlightLayer = e.target;
 
-    if (!visi_isActive) {
+    if (!visi_isActive && !temp_isActive) {
+        console.log(!visi_isActive || !temp_isActive)
         if (e.target.feature.geometry.type === 'LineString') {
             highlightLayer.setStyle({
                 color: '#ffff00',
@@ -83,7 +85,7 @@ function pop_airport_1(feature, layer) {
 
     layer.on({
         mouseout: function (e) {
-            if (!visi_isActive) {
+            if (!visi_isActive && !temp_isActive) {
                 for (i in e.target._eventParents) {
                     e.target._eventParents[i].resetStyle(e.target);
                 }

@@ -1,60 +1,44 @@
 var temp_myButton = document.getElementById('temperature')
 var temp_isActive = false
-var temp_layer0 = null
+
 
 const temp_startEvent = () => {
 
     if (!temp_isActive) {
-
+        temp_isActive = true
         temp_myButton.classList.add('clicked')
 
+        airport_points.forEach(element => {
 
-        testData = {
-            max: 50,
-            data: []
-        }
+            if (element.feature.properties.Temperature <= 20) {
+                element.setStyle({ fillColor: "#000ff" })
+            } else if (20 <= element.feature.properties.Temperature && element.feature.properties.Temperature < 25) {
+                element.setStyle({ fillColor: "#4000bf" })
+            } else if (25 <= element.feature.properties.Temperature && element.feature.properties.Temperature < 30) {
 
-        json_airport_1.features.forEach(element => {
-            let data_point = { lat: element.geometry.coordinates[1], lng: element.geometry.coordinates[0], count: element.properties.Temperature }
-            testData.data.push(data_point)
+                element.setStyle({ fillColor: "#6a0095" })
+            } else if (30 <= element.feature.properties.Temperature && element.feature.properties.Temperature < 35) {
+
+                element.setStyle({ fillColor: "#95006a" })
+            } else if (35 <= element.feature.properties.Temperature && element.feature.properties.Temperature < 40) {
+
+                element.setStyle({ fillColor: "#bf0040" })
+            } else {
+
+                element.setStyle({ fillColor: "#ff0000" })
+            }
+
         });
-
-
-
-        var cfg = {
-            // radius should be small ONLY if scaleRadius is true (or small radius is intended)
-            // if scaleRadius is false it will be the constant radius used in pixels
-            "radius": 1,
-            "maxOpacity": .8,
-            // scales the radius based on map zoom
-            "scaleRadius": true,
-            // if set to false the heatmap uses the global maximum for colorization
-            // if activated: uses the data maximum within the current map boundaries
-            // (there will always be a red spot with useLocalExtremas true)
-            "useLocalExtrema": true,
-            // which field name in your data represents the latitude - default "lat"
-            latField: 'lat',
-            // which field name in your data represents the longitude - default "lng"
-            lngField: 'lng',
-            // which field name in your data represents the data value - default "value"
-            valueField: 'count'
-        };
-
-        var heatmapLayer = new HeatmapOverlay(cfg);
-
-        map.addLayer(heatmapLayer)
-        heatmapLayer.setData(testData)
-        map.getPanes().overlayPane.style.zIndex = 401
-        temp_isActive = true
-        temp_layer0 = heatmapLayer
 
 
     } else {
 
         temp_myButton.classList.remove("clicked")
         temp_isActive = false
-        temp_layer0.onRemove(map)
-        temp_layer0 = null
+        airport_points.forEach((element) => {
+            element.setStyle({ fillColor: 'rgba(255,245,240,1.0)' })
+        })
+
     }
 
 }

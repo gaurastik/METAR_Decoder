@@ -20,3 +20,10 @@
 
 
 }
+
+.my-tooltip {
+    background-color: yellow;
+    color: black;
+    border: 1px solid black;
+    padding: 6px;
+}
