@@ -4,7 +4,7 @@ const app = express()
 const request = require('request')
 const weather_API = require('../utils/weather_api')
 const geojson_file = require('../utils/json_to_geojson')
-//test
+//testing
 const fs = require('fs')
 
 const airport_query = [
@@ -24,6 +24,7 @@ app.get('/', (req, res, next) => {
             if (error) {
                 res.send(error)
             } else {
+                fs.writeFileSync(`${frontend_dir_path}/data/airport_1_raw.js`, JSON.stringify(data))
                 data.data.forEach(station => {
                     weather_data_json.push(station)
                 })
@@ -41,7 +42,7 @@ app.get('/', (req, res, next) => {
 })
 
 app.use(express.static(frontend_dir_path))
-
+console.log(frontend_dir_path)
 app.listen(3000, () => {
     console.log("Server is up and running!")
 })

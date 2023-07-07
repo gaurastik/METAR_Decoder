@@ -19,7 +19,7 @@ const conversion = (weather_data) => {
             }
         }
 
-        if (airport.barometer.hpa !== undefined) {
+        if (airport.barometer !== undefined) {
             airport_geojson.properties.Pressure = airport.barometer.hpa
         } else { airport_geojson.properties.Pressure = null }
         if (airport.clouds[0] !== undefined) {
@@ -31,10 +31,10 @@ const conversion = (weather_data) => {
         if (airport.clouds[2] !== undefined) {
             airport_geojson.properties["Cloud 3rd Layer"] = `${airport.clouds[2].code}, ${airport.clouds[2].meters}`
         } else { airport_geojson.properties["Cloud 3rd Layer"] = null }
-        if (airport.dewpoint.celsius !== undefined) {
+        if (airport.dewpoint !== undefined) {
             airport_geojson.properties.Dewpoint = airport.dewpoint.celsius
         } else { airport_geojson.properties.Dewpoint = null }
-        if (airport.humidity.percent !== undefined) {
+        if (airport.humidity !== undefined) {
             airport_geojson.properties.Humidity = airport.humidity.percent
         } else { airport_geojson.properties.Humidity = null }
         if (airport.icao !== undefined) {
@@ -49,10 +49,10 @@ const conversion = (weather_data) => {
         if (airport.station.name !== undefined) {
             airport_geojson.properties["Name of airport"] = airport.station.name
         } else { airport_geojson.properties["Name of airport"] = null }
-        if (airport.temperature.celsius !== undefined) {
+        if (airport.temperature !== undefined) {
             airport_geojson.properties.Temperature = airport.temperature.celsius
         } else { airport_geojson.properties.Temperature = null }
-        if (airport.visibility.meters !== undefined) {
+        if (airport.visibility !== undefined) {
             airport_geojson.properties.Visibility = airport.visibility.meters
         } else { airport_geojson.properties.Visibility = null }
         if (airport.wind !== undefined) {

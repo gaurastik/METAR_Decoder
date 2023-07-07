@@ -1,6 +1,6 @@
 var visi_isActive = false
 var temp_isActive = false
-
+console.log("I'm here")
 //Highlight Layer
 var highlightLayer;
 function highlightFeature(e) {
