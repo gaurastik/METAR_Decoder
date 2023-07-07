@@ -1,18 +1,23 @@
+var visi_isActive = false
+
 //Highlight Layer
 var highlightLayer;
 function highlightFeature(e) {
     highlightLayer = e.target;
 
-    if (e.target.feature.geometry.type === 'LineString') {
-        highlightLayer.setStyle({
-            color: '#ffff00',
-        });
-    } else {
-        highlightLayer.setStyle({
-            fillColor: '#ffff00',
-            fillOpacity: 1
-        });
+    if (!visi_isActive) {
+        if (e.target.feature.geometry.type === 'LineString') {
+            highlightLayer.setStyle({
+                color: '#ffff00',
+            });
+        } else {
+            highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+            });
+        }
     }
+
 }
 
 //Create Map
@@ -75,12 +80,16 @@ map.addLayer(layer_INDIA_STATES_0);
 
 //Highligh airport layer
 function pop_airport_1(feature, layer) {
+
     layer.on({
         mouseout: function (e) {
-            for (i in e.target._eventParents) {
-                e.target._eventParents[i].resetStyle(e.target);
+            if (!visi_isActive) {
+                for (i in e.target._eventParents) {
+                    e.target._eventParents[i].resetStyle(e.target);
+                }
             }
         },
+
         mouseover: highlightFeature,
     });
     //Pop-up content display

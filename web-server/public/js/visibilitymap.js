@@ -1,10 +1,10 @@
 var visi_myButton = document.getElementById('visibility')
-var visi_isActive = false
+
 
 
 var visi_startEvent = () => {
     if (!visi_isActive) {
-
+        visi_isActive = true
         visi_myButton.classList.add('clicked')
 
         airport_points.forEach(element => {
@@ -29,7 +29,7 @@ var visi_startEvent = () => {
 
         });
 
-        visi_isActive = true
+
 
     } else {
         visi_myButton.classList.remove("clicked")
