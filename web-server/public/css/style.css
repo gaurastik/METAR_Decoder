@@ -21,9 +21,9 @@
 
 }
 
-.my-tooltip {
-    background-color: yellow;
-    color: black;
-    border: 1px solid black;
+.leaflet-tooltip.my-tooltip {
+    background-color: black;
+    color: white;
+    border: 1px solid whitesmoke;
     padding: 6px;
 }

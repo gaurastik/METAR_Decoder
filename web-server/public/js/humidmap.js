@@ -9,6 +9,7 @@ var humid_startEvent = () => {
         var humid_markers = []
         json_airport_1.features.forEach(element => {
             var marker = L.circleMarker([element.geometry.coordinates[1], element.geometry.coordinates[0]], { radius: element.properties.Humidity / 5, color: '#051937', fillOpacity: 0.8 })
+            marker.bindTooltip(`${element.properties.Humidity}%`, { className: 'my-tooltip' })
             humid_markers.push(marker)
         })
 

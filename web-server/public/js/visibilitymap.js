@@ -26,6 +26,7 @@ var visi_startEvent = () => {
 
                 element.setStyle({ fillColor: "#ff0000" })
             }
+            element.bindTooltip(`${element.feature.properties.Visibility}m`, { className: 'my-tooltip' })
 
         });
 
@@ -36,6 +37,7 @@ var visi_startEvent = () => {
         visi_isActive = false
         airport_points.forEach((element) => {
             element.setStyle({ fillColor: 'rgba(255,245,240,1.0)' })
+            element.unbindTooltip()
         })
 
     }

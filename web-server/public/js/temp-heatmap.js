@@ -27,6 +27,7 @@ const temp_startEvent = () => {
 
                 element.setStyle({ fillColor: "#ff0000" })
             }
+            element.bindTooltip(`${element.feature.properties.Temperature}° C`, { className: 'my-tooltip' })
 
         });
 
@@ -37,6 +38,7 @@ const temp_startEvent = () => {
         temp_isActive = false
         airport_points.forEach((element) => {
             element.setStyle({ fillColor: 'rgba(255,245,240,1.0)' })
+            element.unbindTooltip()
         })
 
     }
