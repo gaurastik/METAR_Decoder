@@ -270,7 +270,98 @@
       <h5>Shivajinagar, Pune-411 005</h5>
       <h5><i class="bi bi-telephone"></i> : 020-25535877</h5>
       <h5>FAX: 091-020-25535435</h5>
+      <br>
+      <style>
+        :root {
+            --background: #2C2C2C;
+            --linkedin: #0A66C2;
+            --youtube: #e52d27;
+            --twitter: #1D9BF0;
+        }
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+    
+        .social-media-buttons {
+            display: flex;
+            justify-content: left;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+    
+        .social-media-button {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            outline: 2px solid white;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: grid;
+            place-items: center;
+        }
+    
+        .social-media-button:hover {
+            outline-offset: 3px;
+            transition: all 0.3s;
+        }
+    
+        .social-media-button img {
+            transition: all 0.3s;
+        }
+    
+        .social-media-button:hover img {
+            transform: scale(1.15);
+        }
+    
+        .social-media-button:hover:nth-child(1) {
+            background: radial-gradient(
+                circle at 30% 107%, #fdf497 0%,
+                #fdf497 5%, #fd5949 45%,
+                #d6249f 60%,#285AEB 90%
+            );
+        }
+    
+        .social-media-button:hover:nth-child(2) {
+            background-color: var(--twitter);
+        }
+    
+        .social-media-button:hover:nth-child(3) {
+            background-color: var(--youtube);
+        }
+    
+        .social-media-button:hover:nth-child(4) {
+            background-color: var(--linkedin);
+        }
+    </style>
+        <span class="social-media-buttons">
+          <span class="social-media-button">
+            <a href="https://www.instagram.com/imd_mausam/?hl=en" target="_blank">
+                <img alt="Instagram" src="icons/instagram.svg" />
+            </a>
+          </span>               
+          <span class="social-media-button">
+              <a href="https://twitter.com/Indiametdept?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank">
+                <img alt="Twitter" src="icons/twitter.svg" />
+              </a>
+          </span>
+          <span class="social-media-button">
+              <a href="https://www.youtube.com/channel/UC_qxTReoq07UVARm87CuyQw" target="_blank">
+                <img alt="Youtube" src="icons/youtube.svg" />
+              </a>
+          </span>
+          <span class="social-media-button">
+              <a href="https://www.linkedin.com/company/india-meteorological-department/mycompany/" target="_blank">
+                <img alt="LinkedIn" src="icons/linkedin.svg" />
+              </a>
+          </span>
+        </span>
+    </span>
     </div>
+    
     <div class="col-md-3 pt-4">
       <h5 class="pb-4" style="font-weight: bold;">Important Links</h5>
       <ul class="list-unstyled">
