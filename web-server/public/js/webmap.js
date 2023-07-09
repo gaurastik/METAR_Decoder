@@ -1,26 +1,6 @@
 var visi_isActive = false
 var temp_isActive = false
 console.log("I'm here")
-//Highlight Layer
-var highlightLayer;
-function highlightFeature(e) {
-    highlightLayer = e.target;
-
-    if (!visi_isActive && !temp_isActive) {
-        console.log(!visi_isActive || !temp_isActive)
-        if (e.target.feature.geometry.type === 'LineString') {
-            highlightLayer.setStyle({
-                color: '#ffff00',
-            });
-        } else {
-            highlightLayer.setStyle({
-                fillColor: '#ffff00',
-                fillOpacity: 1
-            });
-        }
-    }
-
-}
 
 //Create Map
 var map = L.map('map', {
@@ -80,20 +60,9 @@ var layer_INDIA_STATES_0 = new L.geoJson(json_INDIA_STATES_0, {
 bounds_group.addLayer(layer_INDIA_STATES_0);
 map.addLayer(layer_INDIA_STATES_0);
 
-//Highligh airport layer
+//Airport pop-up
 function pop_airport_1(feature, layer) {
 
-    layer.on({
-        mouseout: function (e) {
-            if (!visi_isActive && !temp_isActive) {
-                for (i in e.target._eventParents) {
-                    e.target._eventParents[i].resetStyle(e.target);
-                }
-            }
-        },
-
-        mouseover: highlightFeature,
-    });
     //Pop-up content display
     var popupContent = '<table>\
             <tr>\
@@ -167,16 +136,6 @@ function pop_airport_1(feature, layer) {
 function style_airport_1_0() {
     return {
         pane: 'pane_airport_1',
-        radius: 4.0,
-        opacity: 1,
-        color: 'rgba(35,35,35,1.0)',
-        dashArray: '',
-        lineCap: 'butt',
-        lineJoin: 'miter',
-        weight: 1,
-        fill: true,
-        fillOpacity: 1,
-        fillColor: 'rgba(255,245,240,1.0)',
         interactive: true,
     }
 }
@@ -196,7 +155,7 @@ var layer_airport_1 = new L.geoJson(json_airport_1, {
             feature: feature,
             variables: {}
         };
-        var point = L.circleMarker(latlng, style_airport_1_0(feature));
+        var point = L.marker(latlng, style_airport_1_0(feature));
         airport_points.push(point)
         return point;
     },

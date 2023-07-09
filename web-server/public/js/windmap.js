@@ -1,6 +1,5 @@
 var wind_myButton = document.getElementById('wind')
 var wind_isActive = false
-var wind_layer0 = null
 
 const wind_startEvent = () => {
 
@@ -9,25 +8,23 @@ const wind_startEvent = () => {
         wind_myButton.classList.add('clicked')
 
         var wind_markers = []
-        json_airport_1.features.forEach(element => {
-            var icon = L.WindBarb.icon({ lat: element.geometry.coordinates[1], deg: element.properties["Wind Direction"], speed: element.properties["Wind Speed"], pointRadius: 5, strokeLength: 20 });
-            var marker = L.marker([element.geometry.coordinates[1], element.geometry.coordinates[0]], { icon: icon })
-            marker.bindTooltip(`${element.properties["Wind Direction"]}°/ ${element.properties["Wind Speed"]} kts`, { className: 'my-tooltip' })
-            wind_markers.push(marker)
+        airport_points.forEach(element => {
+            var icon = L.WindBarb.icon({ lat: element.feature.geometry.coordinates[1], deg: element.feature.properties["Wind Direction"], speed: element.feature.properties["Wind Speed"], pointRadius: 5, strokeLength: 20 });
+            element.setIcon(icon)
+            element.bindTooltip(`${element.feature.properties["Wind Direction"]}°/ ${element.feature.properties["Wind Speed"]} kts`, { className: 'my-tooltip' })
+
         });
 
-
-        var Wind_layer = L.layerGroup(wind_markers).addTo(map)
         wind_isActive = true
-        wind_layer0 = Wind_layer
-
 
     } else {
-
+        var defaultIcon = new L.Icon.Default()
+        airport_points.forEach(element => {
+            element.setIcon(defaultIcon)
+            element.unbindTooltip()
+        })
         wind_myButton.classList.remove("clicked")
         wind_isActive = false
-        wind_layer0.onRemove(map)
-        wind_layer0 = null
     }
 
 }

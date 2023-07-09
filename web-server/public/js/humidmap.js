@@ -13,6 +13,11 @@ var humid_startEvent = () => {
             humid_markers.push(marker)
         })
 
+        airport_points.forEach(element => {
+            var icon = L.icon({ iconUrl: './legend/white_circle.png', iconSize: [10, 10], })
+            element.setIcon(icon)
+        })
+
         var Humid_layer = L.layerGroup(humid_markers).addTo(map)
 
         map.getPanes().overlayPane.style.zIndex = 401
@@ -23,6 +28,10 @@ var humid_startEvent = () => {
             console.log('hello!')
         })
     } else {
+        var defaultIcon = new L.Icon.Default()
+        airport_points.forEach(element => {
+            element.setIcon(defaultIcon)
+        })
         humid_myButton.classList.remove("clicked")
         humid_isActive = false
         humid_layer0.onRemove(map)
