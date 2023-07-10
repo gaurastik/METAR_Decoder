@@ -137,6 +137,7 @@ function style_airport_1_0() {
     return {
         pane: 'pane_airport_1',
         interactive: true,
+
     }
 }
 map.createPane('pane_airport_1');
@@ -176,7 +177,7 @@ document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
     .title += 'Search for a place';
 var baseMaps = { '<img src="legend/INDIA_STATES_0.png" /> INDIA_STATES': layer_INDIA_STATES_0, };
 var overlayMaps = { '<img src="legend/airport_1.png" /> airport': layer_airport_1 }
-var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+
 setBounds();
 map.addControl(new L.Control.Search({
     layer: layer_airport_1,

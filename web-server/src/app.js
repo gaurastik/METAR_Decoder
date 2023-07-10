@@ -42,7 +42,6 @@ app.get('/', (req, res, next) => {
 })
 
 app.use(express.static(frontend_dir_path))
-console.log(frontend_dir_path)
 app.listen(3000, () => {
     console.log("Server is up and running!")
 })
