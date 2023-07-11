@@ -1,5 +1,9 @@
 #map {
-    height: 589px;
+    height: 520px;
+}
+
+.legend div {
+    font-size: 1;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -50,6 +54,7 @@
 .legend {
     line-height: 18px;
     color: #555;
+
 }
 
 .legend i {

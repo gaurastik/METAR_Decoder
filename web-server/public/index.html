@@ -5,6 +5,11 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -14,12 +19,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
   <!--CSS-->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/leaflet.css">
+  <link rel="stylesheet" href="css/L.Control.Locate.min.css">
+  <link rel="stylesheet" href="css/qgis2web.css">
+  <link rel="stylesheet" href="css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="css/leaflet-search.css">
+  <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+  <link rel="stylesheet" href="css/leaflet-measure.css">
   <!--icon-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="icon" href="legend/airplane-mode.png">
 
 
-
-  <title>METAR Decoder</title>
+  <title>METAR Visualizer</title>
 </head>
 
 <body>
@@ -81,324 +92,199 @@
   <hr>
   <div class="container-fluid">
 
-    <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
-      <meta name="mobile-web-app-capable" content="yes">
-      <meta name="apple-mobile-web-app-capable" content="yes">
-      <link rel="stylesheet" href="css/leaflet.css">
-      <link rel="stylesheet" href="css/L.Control.Locate.min.css">
-      <link rel="stylesheet" href="css/qgis2web.css">
-      <link rel="stylesheet" href="css/fontawesome-all.min.css">
-      <link rel="stylesheet" href="css/leaflet-search.css">
-      <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
-      <link rel="stylesheet" href="css/leaflet-measure.css">
-      <title></title>
-    </head>
+    <div id="map">
+    </div>
+    <script src="js/qgis2web_expressions.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/L.Control.Locate.min.js"></script>
+    <script src="js/leaflet.rotatedMarker.js"></script>
+    <script src="js/leaflet.pattern.js"></script>
+    <script src="js/leaflet-hash.js"></script>
+    <script src="js/Autolinker.min.js"></script>
+    <script src="js/rbush.min.js"></script>
+    <script src="js/labelgun.min.js"></script>
+    <script src="js/labels.js"></script>
+    <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+    <script src="js/leaflet-measure.js"></script>
+    <script src="js/leaflet-search.js"></script>
+    <script src="data/INDIA_STATES_0.js"></script>
+    <script src="data/airport_1.js"></script>
+    <script src="js/webmap.js"></script>
+    <script src="js/Leaflet.windbarb-master/src/leaflet-windbarb.js"></script>
+    <script src="js/temp-heatmap.js"></script>
+    <script src="js/windmap.js"></script>
+    <script src="js/humidmap.js"></script>
+    <script src="js/visibilitymap.js"></script>
 
-    <body>
-      <div id="map">
-      </div>
-      <script src="js/qgis2web_expressions.js"></script>
-      <script src="js/leaflet.js"></script>
-      <script src="js/L.Control.Locate.min.js"></script>
-      <script src="js/leaflet.rotatedMarker.js"></script>
-      <script src="js/leaflet.pattern.js"></script>
-      <script src="js/leaflet-hash.js"></script>
-      <script src="js/Autolinker.min.js"></script>
-      <script src="js/rbush.min.js"></script>
-      <script src="js/labelgun.min.js"></script>
-      <script src="js/labels.js"></script>
-      <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
-      <script src="js/leaflet-measure.js"></script>
-      <script src="js/leaflet-search.js"></script>
-      <script src="data/INDIA_STATES_0.js"></script>
-      <script src="data/airport_1.js"></script>
-      <script src="js/webmap.js"></script>
-      <script src="js/Leaflet.windbarb-master/src/leaflet-windbarb.js"></script>
-      <script src="js/temp-heatmap.js"></script>
-      <script src="js/windmap.js"></script>
-      <script src="js/humidmap.js"></script>
-      <script src="js/visibilitymap.js"></script>
-    </body>
   </div>
 
-</html>
 
-</body>
-<div class="container-fluid" style="background-color: #515d6a; padding-top: 10px;">
-  <footer>
-    <div class="row justify-content-evenly pt-2 pb-5">
-      <div class="col-md-5 mt-5" style="font-family: 'Oxygen', sans-serif; color: #FFFFFF;">
-        <h3 style="font-weight: bold; margin-bottom: 50px;">Color Legend</h3>
-        <h4>
-          <div class='my-legend'>
-            <div class='legend-title'>Temperature (°C)</div>
-            <br>
-            <div class='legend-scale'>
-              <ul class='legend-labels' style='font-size: 20px;'>
-                <ul class='legend-labels'>
-                  <li><span style='background:#0000FF;'></span>20-</li>
-                  <li><span style='background:#660099;'></span>20 - 25</li>
-                  <li><span style='background:#990066;'></span>25 - 30</li>
-                  <li><span style='background:#CC0033;'></span>30 - 35</li>
-                  <li><span style='background:#FF0000;'></span>35+</li>
-                </ul>
-              </ul>
+  <div class="container-fluid" style="background-color: #515d6a; padding-top: 10px;">
+    <footer>
+      <div class="row justify-content-evenly pt-2 pb-5">
+        <div class="col-md-5 mt-5" style="font-family: 'Oxygen', sans-serif; color: #FFFFFF;">
+          <h3 style="font-weight: bold; margin-bottom: 50px;">India Meterological Department</h3>
+          <h4>The India Meteorological Department (IMD) is the national meteorological service of India, responsible for
+            providing weather forecasting, climate monitoring, and related services. Established in 1875, the IMD plays
+            a
+            crucial role in safeguarding lives and properties by issuing timely weather warnings and advisories. With
+            its
+            vast network of observatories, satellites, and advanced forecasting models, the IMD helps in predicting and
+            understanding weather patterns, cyclones, monsoons, and other atmospheric phenomena. The department's
+            efforts
+            contribute to various sectors such as agriculture, aviation, disaster management, and public safety,
+            supporting the overall development and well-being of the nation.</h4>
 
-              <style type='text/css'>
-                .my-legend .legend-title {
-                  text-align: left;
-                  margin-bottom: 5px;
-                  font-weight: bold;
-                  font-size: 90%;
-                }
-
-                .my-legend .legend-scale ul {
-                  margin: 0;
-                  margin-bottom: 5px;
-                  padding: 0;
-                  float: left;
-                  list-style: none;
-                }
-
-                .my-legend .legend-scale ul li {
-                  font-size: 80%;
-                  list-style: none;
-                  margin-left: 0;
-                  line-height: 18px;
-                  margin-bottom: 2px;
-                }
-
-                .my-legend ul.legend-labels li span {
-                  display: block;
-                  float: left;
-                  height: 16px;
-                  width: 30px;
-                  margin-right: 5px;
-                  margin-left: 0;
-                  border: 1px solid #999;
-                }
-
-                .my-legend a {
-                  color: #777;
-                }
-              </style>
-        </h4>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h4>
-          <div class='my-legend'>
-            <div class='legend-title'>Visibility (m)</div>
-            <br>
-            <div class='legend-scale'>
-              <ul class='legend-labels'>
-                <ul class='legend-labels' style='font-size: 20px;'>
-                  <ul class='legend-labels'>
-                    <li><span style='background:#FF0000;'></span>1,000-</li>
-                    <li><span style='background:#CC0033;'></span>1,000 - 4,000</li>
-                    <li><span style='background:#990066;'></span>4,000 - 6,000</li>
-                    <li><span style='background:#660099;'></span>6,000 - 10,000</li>
-                    <li><span style='background:#0000FF;'></span>10,000+</li>
-                  </ul>
-                </ul>
-
-
-                <style type='text/css'>
-                  .my-legend .legend-title {
-                    text-align: left;
-                    margin-bottom: 5px;
-                    font-weight: bold;
-                    font-size: 90%;
-                  }
-
-                  .my-legend .legend-scale ul {
-                    margin: 0;
-                    margin-bottom: 5px;
-                    padding: 0;
-                    float: left;
-                    list-style: none;
-                  }
-
-                  .my-legend .legend-scale ul li {
-                    font-size: 80%;
-                    list-style: none;
-                    margin-left: 0;
-                    line-height: 18px;
-                    margin-bottom: 2px;
-                  }
-
-                  .my-legend ul.legend-labels li span {
-                    display: block;
-                    float: left;
-                    height: 16px;
-                    width: 30px;
-                    margin-right: 5px;
-                    margin-left: 0;
-                    border: 1px solid #999;
-                  }
-
-                  .my-legend a {
-                    color: #777;
-                  }
-                </style>
-        </h4>
-
-      </div>
-      <div class="col-md-5 mt-5" style="font-family: 'Oxygen', sans-serif; color: #FFFFFF;">
-        <div class="row">
-          <div class="col">
-            <h3 style="font-weight: bold; margin-bottom: 50px;">IMD,Pune</h3>
-            <img src="images/imd.png" class="img-fluid" alt="">
+        </div>
+        <div class="col-md-5 mt-5" style="font-family: 'Oxygen', sans-serif; color: #FFFFFF;">
+          <div class="row">
+            <div class="col">
+              <h3 style="font-weight: bold; margin-bottom: 50px;">IMD,Pune</h3>
+              <img src="images/imd.png" class="img-fluid" alt="">
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </footer>
-</div>
-<!--footer -->
-<div class="container-fluid">
-  <div class="row justify-content-evenly bg-dark text-white pt-2 pb-5" style="font-family: 'Oxygen', sans-serif;">
-    <div class="col-md-3 pt-4">
-      <h5 class="pb-4" style="font-weight: bold;">Aviation Meteorological Department</h5>
-      <h5>Climate Research & Services,</h5>
-      <h5>India Meteorological Department,</h5>
-      <h5>Shivajinagar, Pune-411 005</h5>
-      <h5><i class="bi bi-telephone"></i> : 020-25535877</h5>
-      <h5>FAX: 091-020-25535435</h5>
-      <br>
-      <style>
-        :root {
-          --background: #2C2C2C;
-          --linkedin: #0A66C2;
-          --youtube: #e52d27;
-          --twitter: #1D9BF0;
-        }
+    </footer>
+  </div>
+  <!--footer -->
+  <div class="container-fluid">
+    <div class="row justify-content-evenly bg-dark text-white pt-2 pb-5" style="font-family: 'Oxygen', sans-serif;">
+      <div class="col-md-3 pt-4">
+        <h5 class="pb-4" style="font-weight: bold;">Aviation Meteorological Department</h5>
+        <h5>Climate Research & Services,</h5>
+        <h5>India Meteorological Department,</h5>
+        <h5>Shivajinagar, Pune-411 005</h5>
+        <h5><i class="bi bi-telephone"></i> : 020-25535877</h5>
+        <h5>FAX: 091-020-25535435</h5>
+        <br>
+        <style>
+          :root {
+            --background: #2C2C2C;
+            --linkedin: #0A66C2;
+            --youtube: #e52d27;
+            --twitter: #1D9BF0;
+          }
 
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
 
 
-        .social-media-buttons {
-          display: flex;
-          justify-content: left;
-          flex-wrap: wrap;
-          gap: 24px;
-        }
+          .social-media-buttons {
+            display: flex;
+            justify-content: left;
+            flex-wrap: wrap;
+            gap: 24px;
+          }
 
-        .social-media-button {
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          outline: 2px solid white;
-          cursor: pointer;
-          transition: all 0.3s;
-          display: grid;
-          place-items: center;
-        }
+          .social-media-button {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            outline: 2px solid white;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: grid;
+            place-items: center;
+          }
 
-        .social-media-button:hover {
-          outline-offset: 3px;
-          transition: all 0.3s;
-        }
+          .social-media-button:hover {
+            outline-offset: 3px;
+            transition: all 0.3s;
+          }
 
-        .social-media-button img {
-          transition: all 0.3s;
-        }
+          .social-media-button img {
+            transition: all 0.3s;
+          }
 
-        .social-media-button:hover img {
-          transform: scale(1.15);
-        }
+          .social-media-button:hover img {
+            transform: scale(1.15);
+          }
 
-        .social-media-button:hover:nth-child(1) {
-          background: radial-gradient(circle at 30% 107%, #fdf497 0%,
-              #fdf497 5%, #fd5949 45%,
-              #d6249f 60%, #285AEB 90%);
-        }
+          .social-media-button:hover:nth-child(1) {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%,
+                #fdf497 5%, #fd5949 45%,
+                #d6249f 60%, #285AEB 90%);
+          }
 
-        .social-media-button:hover:nth-child(2) {
-          background-color: var(--twitter);
-        }
+          .social-media-button:hover:nth-child(2) {
+            background-color: var(--twitter);
+          }
 
-        .social-media-button:hover:nth-child(3) {
-          background-color: var(--youtube);
-        }
+          .social-media-button:hover:nth-child(3) {
+            background-color: var(--youtube);
+          }
 
-        .social-media-button:hover:nth-child(4) {
-          background-color: var(--linkedin);
-        }
-      </style>
-      <span class="social-media-buttons">
-        <span class="social-media-button">
-          <a href="https://www.instagram.com/imd_mausam/?hl=en" target="_blank">
-            <img alt="Instagram" src="icons/instagram.svg" />
-          </a>
+          .social-media-button:hover:nth-child(4) {
+            background-color: var(--linkedin);
+          }
+        </style>
+        <span class="social-media-buttons">
+          <span class="social-media-button">
+            <a href="https://www.instagram.com/imd_mausam/?hl=en" target="_blank">
+              <img alt="Instagram" src="icons/instagram.svg" />
+            </a>
+          </span>
+          <span class="social-media-button">
+            <a href="https://twitter.com/Indiametdept?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+              target="_blank">
+              <img alt="Twitter" src="icons/twitter.svg" />
+            </a>
+          </span>
+          <span class="social-media-button">
+            <a href="https://www.youtube.com/channel/UC_qxTReoq07UVARm87CuyQw" target="_blank">
+              <img alt="Youtube" src="icons/youtube.svg" />
+            </a>
+          </span>
+          <span class="social-media-button">
+            <a href="https://www.linkedin.com/company/india-meteorological-department/mycompany/" target="_blank">
+              <img alt="LinkedIn" src="icons/linkedin.svg" />
+            </a>
+          </span>
         </span>
-        <span class="social-media-button">
-          <a href="https://twitter.com/Indiametdept?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
-            target="_blank">
-            <img alt="Twitter" src="icons/twitter.svg" />
-          </a>
         </span>
-        <span class="social-media-button">
-          <a href="https://www.youtube.com/channel/UC_qxTReoq07UVARm87CuyQw" target="_blank">
-            <img alt="Youtube" src="icons/youtube.svg" />
-          </a>
-        </span>
-        <span class="social-media-button">
-          <a href="https://www.linkedin.com/company/india-meteorological-department/mycompany/" target="_blank">
-            <img alt="LinkedIn" src="icons/linkedin.svg" />
-          </a>
-        </span>
-      </span>
-      </span>
-    </div>
+      </div>
 
-    <div class="col-md-3 pt-4">
-      <h5 class="pb-4" style="font-weight: bold;">Important Links</h5>
-      <ul class="list-unstyled">
-        <li><a href="#" class="link-light text-decoration-none pb-3">Home</a></li>
-        <li><a class="link-light text-decoration-none pb-3">About Us</a>
-          <ul>
-            <li><a href="https://mausam.imd.gov.in/imd_latest/contents/history.php"
-                class="link-light text-decoration-none pb-3" target="_blank">History</a></li>
-            <li><a href="https://www.imdpune.gov.in/" class="link-light text-decoration-none pb-3"
-                target="_blank">Services</a></li>
-          </ul>
-        </li>
-        <li><a href="https://mausam.imd.gov.in/imd_latest/contents/queries2.php" class="link-light text-decoration-none"
-            target="_blank">Contact</a></li>
-      </ul>
-    </div>
-    <div class="col-md-3 pt-4">
-      <h5 class="pb-4" style="font-weight: bold;">Map</h5>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30262.782451850737!2d73.80518850016568!3d18.53577847920561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c0839c10afb9%3A0xb712f082ad5baf05!2sIndia%20Meteorological%20Department!5e0!3m2!1sen!2sin!4v1686317409215!5m2!1sen!2sin"
-        style="width: 100%; height: 200px; border: 0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="col-md-3 pt-4">
+        <h5 class="pb-4" style="font-weight: bold;">Important Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="link-light text-decoration-none pb-3">Home</a></li>
+          <li><a class="link-light text-decoration-none pb-3">About Us</a>
+            <ul>
+              <li><a href="https://mausam.imd.gov.in/imd_latest/contents/history.php"
+                  class="link-light text-decoration-none pb-3" target="_blank">History</a></li>
+              <li><a href="https://www.imdpune.gov.in/" class="link-light text-decoration-none pb-3"
+                  target="_blank">Services</a></li>
+            </ul>
+          </li>
+          <li><a href="https://mausam.imd.gov.in/imd_latest/contents/queries2.php"
+              class="link-light text-decoration-none" target="_blank">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 pt-4">
+        <h5 class="pb-4" style="font-weight: bold;">Map</h5>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30262.782451850737!2d73.80518850016568!3d18.53577847920561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c0839c10afb9%3A0xb712f082ad5baf05!2sIndia%20Meteorological%20Department!5e0!3m2!1sen!2sin!4v1686317409215!5m2!1sen!2sin"
+          style="width: 100%; height: 200px; border: 0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
   </div>
-</div>
-<!--copyright-->
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12 bg-secondary text-white text-center p-1">
-      <p style="font-family: 'Oxygen', sans-serif;">Designed & Developed by Astik Gaur & Roshan Karanth</p>
+  <!--copyright-->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 bg-secondary text-white text-center p-1">
+        <p style="font-family: 'Oxygen', sans-serif;">Designed & Developed by Astik Gaur & Roshan Karanth</p>
+      </div>
     </div>
   </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,6 +1,5 @@
 var visi_isActive = false
 var temp_isActive = false
-console.log("I'm here")
 
 //Create Map
 var map = L.map('map', {
