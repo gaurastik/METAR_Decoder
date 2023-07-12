@@ -1,5 +1,7 @@
 var visi_isActive = false
 var temp_isActive = false
+var wind_isActive = false
+var humid_isActive = false
 
 //Create Map
 var map = L.map('map', {
@@ -7,6 +9,42 @@ var map = L.map('map', {
     maxZoom: 28,
     minZoom: 1
 }).setView([22.958, 78.112], 5);  // Set the center coordinates of India [latitude, longitude] and zoom level
+//Info control
+var info = L.control()
+
+info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info')
+    this.update()
+    return this._div
+}
+
+info.update = function (props) {
+    if (visi_isActive) {
+        this._div.innerHTML = '<h4>Aerodome Visibility data</h4>' + (props ?
+            '<b>' + props['Name of airport'] + '</b><br />' + 'Observed(D/T): ' + props['Observed D/T'] + '<br />' + 'Visibility: ' + props.Visibility + ' m'
+            : 'Hover over a airport');
+    } else if (temp_isActive) {
+        this._div.innerHTML = '<h4>Aerodome Temperature data</h4>' + (props ?
+            '<b>' + props['Name of airport'] + '</b><br />' + 'Observed(D/T): ' + props['Observed D/T'] + '<br />' + 'Temperature: ' + props.Temperature + '° C'
+            : 'Hover over a airport');
+    } else if (wind_isActive) {
+        this._div.innerHTML = '<h4>Aerodome Wind data</h4>' + (props ?
+            '<b>' + props['Name of airport'] + '</b><br />' + 'Observed(D/T): ' + props['Observed D/T'] + '<br />' + 'Wind Direction: ' + props["Wind Direction"] + '°' + '<br />' + 'Wind Speed: ' + props["Wind Speed"] + ' kts'
+            : 'Hover over a airport');
+    } else if (humid_isActive) {
+        this._div.innerHTML = '<h4>Aerodome Humidity data</h4>' + (props ?
+            '<b>' + props['Name of airport'] + '</b><br />' + 'Observed(D/T): ' + props['Observed D/T'] + '<br />' + 'Humidity: ' + props.Humidity + ' %'
+            : 'Hover over a airport');
+    } else {
+        this._div.innerHTML = '<h4>Aerodome information</h4>' + (props ?
+            '<b>' + props['Name of airport'] + '</b><br />' + 'Location: ' + props.Location
+            : 'Hover over a airport');
+
+    }
+
+}
+
+info.addTo(map)
 
 //QGIS2WebMap Plugin
 var hash = new L.Hash(map);
@@ -62,11 +100,11 @@ map.addLayer(layer_INDIA_STATES_0);
 var highlightFeature = (e) => {
     var layer = e.target
 
-    console.log(layer)
+    info.update(layer.feature.properties)
 }
 
 var resetHighlight = (e) => {
-    console.log('mouseout')
+    info.update()
 }
 
 //Airport pop-up

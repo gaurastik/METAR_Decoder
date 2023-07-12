@@ -1,5 +1,5 @@
 var humid_myButton = document.getElementById('humidity')
-var humid_isActive = false
+
 var humid_layer0 = null
 
 var humid_startEvent = () => {

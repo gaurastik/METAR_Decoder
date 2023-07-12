@@ -1,5 +1,5 @@
 var wind_myButton = document.getElementById('wind')
-var wind_isActive = false
+
 
 const wind_startEvent = () => {
 

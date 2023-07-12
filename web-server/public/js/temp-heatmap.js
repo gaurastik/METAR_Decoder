@@ -1,5 +1,5 @@
 var temp_myButton = document.getElementById('temperature')
-var temp_isActive = false
+
 function getColortemp(d) {
     return d > 35 ? '#bd0026' :
         d > 30 ? '#f03b20' :
