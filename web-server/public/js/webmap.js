@@ -59,9 +59,22 @@ var layer_INDIA_STATES_0 = new L.geoJson(json_INDIA_STATES_0, {
 bounds_group.addLayer(layer_INDIA_STATES_0);
 map.addLayer(layer_INDIA_STATES_0);
 
-//Airport pop-up
-function pop_airport_1(feature, layer) {
+var highlightFeature = (e) => {
+    var layer = e.target
 
+    console.log(layer)
+}
+
+var resetHighlight = (e) => {
+    console.log('mouseout')
+}
+
+//Airport pop-up
+function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+    })
     //Pop-up content display
     var popupContent = '<table>\
             <tr>\
@@ -129,7 +142,7 @@ function pop_airport_1(feature, layer) {
                 <td>' + (feature.properties['Flight Category'] !== null ? autolinker.link(feature.properties['Flight Category'].toLocaleString()) : 'NA') + '</td>\
             </tr>\
         </table>';
-    layer.bindPopup(popupContent, { maxHeight: 500, maxWidth: 500 });
+    layer.bindPopup(popupContent, { maxHeight: 500, maxWidth: 500 })
 }
 //creating airport layer
 function style_airport_1_0() {
@@ -149,7 +162,7 @@ var layer_airport_1 = new L.geoJson(json_airport_1, {
     dataVar: 'json_airport_1',
     layerName: 'layer_airport_1',
     pane: 'pane_airport_1',
-    onEachFeature: pop_airport_1,
+    onEachFeature: onEachFeature,
     pointToLayer: function (feature, latlng) {
         var context = {
             feature: feature,
