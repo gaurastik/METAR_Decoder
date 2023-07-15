@@ -24,9 +24,6 @@ var humid_startEvent = () => {
         humid_isActive = true
         humid_layer0 = Humid_layer
 
-        map.on('click', (e) => {
-            console.log('hello!')
-        })
     } else {
         var defaultIcon = new L.Icon.Default()
         airport_points.forEach(element => {

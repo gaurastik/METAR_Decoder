@@ -109,6 +109,7 @@
     <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
     <script src="js/leaflet-measure.js"></script>
     <script src="js/leaflet-search.js"></script>
+    <script lang="javascript" src="js/sheetjs-github/dist/xlsx.full.min.js"></script>
     <script src="data/INDIA_STATES_0.js"></script>
     <script src="data/airport_1.js"></script>
     <script src="js/webmap.js"></script>
@@ -117,6 +118,7 @@
     <script src="js/windmap.js"></script>
     <script src="js/humidmap.js"></script>
     <script src="js/visibilitymap.js"></script>
+
 
 
   </div>
@@ -128,87 +130,77 @@
         <h3 ; margin-bottom: 50px;">Data</h3>
         <br>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-          <label class="form-check-label" for="inlineRadio1">ICAO code      </label>
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="observed" value="option2">
+          <label class="form-check-label" for="observed">Observed (D/T)</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">Name of airport</label>
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="location" value="option2">
+          <label class="form-check-label" for="location">Location</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">Observed (D/T)</label>
-        </div>  
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">Location</label>
-        </div>  
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">Pressure       </label>
-        </div>  
-       <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">Temperature</label>
-        </div> 
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">Humidity</label>
-        </div>  
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">Dewpoint</label>
-        </div>   
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">Visibility</label>
-        </div>   
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">Cloud 1st Layer</label>
-        </div>   
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">Cloud 2nd Layer</label>
-        </div>   
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">Cloud 3rd Layer</label>
-        </div>   
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">Wind Direction </label>
-        </div>   
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">Wind Speed</label>
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="pressure" value="option2">
+          <label class="form-check-label" for="pressure">Pressure </label>
         </div>
         <div class="form-check form-check-inline">
-         <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-         <label class="form-check-label" for="inlineRadio2">Conditions</label>
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="temperatureD" value="option2">
+          <label class="form-check-label" for="temperature">Temperature</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-         <label class="form-check-label" for="inlineRadio2">Flight Category</label>
-       </div>
-       <br>
-       <br>
-       <button class="btn" style="background-color: 		#1e90ff; color: white;"><i class="fa fa-download"></i> Download Data</button>
-       <br>
-       <br>
-       <h3 ; margin-bottom: 50px;">Report</h3>
-       <br>
-       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-        <label class="form-check-label" for="inlineRadio1">Yesterday</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-        <label class="form-check-label" for="inlineRadio1">Today</label>
-      </div>
-      <br>
-       <br>
-       <button class="btn" style="background-color: 		#0096FF; color: white;"><i class="fa fa-download"></i> Download Report</button>
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="humidityD" value="option2">
+          <label class="form-check-label" for="humidity">Humidity</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="dewpoint" value="option2">
+          <label class="form-check-label" for="dewpoint">Dewpoint</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="visibilityD" value="option2">
+          <label class="form-check-label" for="visibility">Visibility</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="cloud1" value="option2">
+          <label class="form-check-label" for="cloud1">Cloud 1st Layer</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="cloud2" value="option2">
+          <label class="form-check-label" for="cloud2">Cloud 2nd Layer</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="cloud3" value="option2">
+          <label class="form-check-label" for="cloud3">Cloud 3rd Layer</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="windD" value="option2">
+          <label class="form-check-label" for="wind">Wind Data </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="conditions" value="option2">
+          <label class="form-check-label" for="conditions">Conditions</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="flightcat" value="option2">
+          <label class="form-check-label" for="flightcat">Flight Category</label>
+        </div>
+        <br>
+        <br>
+        <button class="btn" style="background-color: 		#1e90ff; color: white;" id="download_data"><i
+            class="fa fa-download"></i> Download Data</button>
+        <br>
+        <br>
+        <h3 ; margin-bottom: 50px;">Report</h3>
+        <br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+          <label class="form-check-label" for="inlineRadio1">Yesterday</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+          <label class="form-check-label" for="inlineRadio1">Today</label>
+        </div>
+        <br>
+        <br>
+        <button class="btn" style="background-color: 		#0096FF; color: white;"><i class="fa fa-download"></i> Download
+          Report</button>
       </div>
 
       <div class="col-md-5 mt-5" style="font-family: 'Oxygen', sans-serif; color: #FFFFFF;">
@@ -220,6 +212,7 @@
         </div>
       </div>
     </div>
+    <script src="js/downloadData.js"></script>
 
 
   </div>

@@ -46,7 +46,7 @@ const temp_startEvent = () => {
         });
 
         legend.onAdd = (map) => {
-            console.log('hello')
+
             var div = L.DomUtil.create('div', 'info legend')
             var grades = [0, 20, 25, 30, 35]
 

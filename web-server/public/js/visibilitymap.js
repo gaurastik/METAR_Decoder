@@ -45,7 +45,7 @@ var visi_startEvent = () => {
 
 
         legend.onAdd = (map) => {
-            console.log('hello')
+
             var div = L.DomUtil.create('div', 'info legend')
 
             var grades = [0, 1000, 4000, 6000, 10000]

@@ -22,23 +22,23 @@ info.update = function (props) {
     if (visi_isActive) {
         this._div.innerHTML = '<h4>Aerodome Visibility data</h4>' + (props ?
             '<b>' + props['Name of airport'] + '</b><br />' + 'Observed(D/T): ' + props['Observed D/T'] + '<br />' + 'Visibility: ' + props.Visibility + ' m'
-            : 'Hover over a airport');
+            : 'Hover over an airport');
     } else if (temp_isActive) {
         this._div.innerHTML = '<h4>Aerodome Temperature data</h4>' + (props ?
             '<b>' + props['Name of airport'] + '</b><br />' + 'Observed(D/T): ' + props['Observed D/T'] + '<br />' + 'Temperature: ' + props.Temperature + '° C'
-            : 'Hover over a airport');
+            : 'Hover over an airport');
     } else if (wind_isActive) {
         this._div.innerHTML = '<h4>Aerodome Wind data</h4>' + (props ?
             '<b>' + props['Name of airport'] + '</b><br />' + 'Observed(D/T): ' + props['Observed D/T'] + '<br />' + 'Wind Direction: ' + props["Wind Direction"] + '°' + '<br />' + 'Wind Speed: ' + props["Wind Speed"] + ' kts'
-            : 'Hover over a airport');
+            : 'Hover over an airport');
     } else if (humid_isActive) {
         this._div.innerHTML = '<h4>Aerodome Humidity data</h4>' + (props ?
             '<b>' + props['Name of airport'] + '</b><br />' + 'Observed(D/T): ' + props['Observed D/T'] + '<br />' + 'Humidity: ' + props.Humidity + ' %'
-            : 'Hover over a airport');
+            : 'Hover over an airport');
     } else {
         this._div.innerHTML = '<h4>Aerodome information</h4>' + (props ?
             '<b>' + props['Name of airport'] + '</b><br />' + 'Location: ' + props.Location
-            : 'Hover over a airport');
+            : 'Hover over an airport');
 
     }
 

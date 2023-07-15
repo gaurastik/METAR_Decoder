@@ -24,7 +24,7 @@ app.get('/', (req, res, next) => {
             if (error) {
                 res.send(error)
             } else {
-                fs.writeFileSync(`${frontend_dir_path}/data/airport_1_raw.js`, JSON.stringify(data))
+
                 data.data.forEach(station => {
                     weather_data_json.push(station)
                 })
