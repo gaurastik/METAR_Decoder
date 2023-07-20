@@ -16,8 +16,8 @@ const temp_startEvent = () => {
 
         layer_INDIA_STATES_0.eachLayer((layer) => {
             layer.setStyle({
-                fillColor: 'rgba(35,35,35,1.0)',
-                color: 'rgba(166,206,227,1.0)'
+                fillColor: 'rgba(255,255,255,1.0)',
+                color: 'rgba(35,35,35,1.0)'
 
             })
         })
